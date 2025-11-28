@@ -1,6 +1,8 @@
 📱 Telecom Customer Churn & Customer Value Prediction
 🚀 Dual-Model AI System (Regression + Classification)
-<p align="center"> <img src="https://raw.githubusercontent.com/sfrcreativity/Telecom-Customer-Churn/main/assets/telecom.png" width="200"/> </p>
+<p align="center">
+  <img src="https://i.imgur.com/kXDHj5Y.png" width="200"/>
+</p>
 🌟 Overview
 
 This project predicts Customer Value and then uses that predicted value to compute Customer Churn Probability.
@@ -99,3 +101,4 @@ Add charts & analytics
 📬 Contact
 
 📌 GitHub: https://github.com/sfrcreativity/Telecom-Customer-Churn
+
