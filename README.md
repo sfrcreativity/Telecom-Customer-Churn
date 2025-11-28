@@ -1,25 +1,101 @@
-    ### 🔍 How It Works  
-    This application performs **two-step prediction** to provide accurate churn insights:
+📱 Telecom Customer Churn & Customer Value Prediction
+🚀 Dual-Model AI System (Regression + Classification)
+<p align="center"> <img src="https://raw.githubusercontent.com/sfrcreativity/Telecom-Customer-Churn/main/assets/telecom.png" width="200"/> </p>
+🌟 Overview
 
-    **1️⃣ Customer Value Prediction (Regression Model)**  
-    - Predicts the customer’s monetary value based on usage patterns  
-    - Considers call failures, SMS frequency, subscription length, age, and more  
-    - The predicted value is automatically injected into the churn model  
+This project predicts Customer Value and then uses that predicted value to compute Customer Churn Probability.
+A complete real-time prediction system built using Machine Learning + Streamlit UI.
 
-    **2️⃣ Churn Prediction (Classification Model)**  
-    - Uses XGBoost, trained on cleaned and scaled telecom datasets  
-    - Calculates churn probability (%) and binary prediction  
-    - Helps telecom providers understand customer risk  
+🔍 How It Works
+1️⃣ Customer Value Prediction (Regression Model)
 
-    ### 🧠 Why This Project is Useful  
-    - Detect high-risk customers early  
-    - Improve retention strategies  
-    - Understand customer behavior patterns  
-    - Deployable as a real-time dashboard for telecom companies  
+✔ Predicts how much a customer might be worth in monetary value
+✔ Uses features like:
 
-    ### 📦 Technology Stack  
-    - **Python, Pandas, NumPy**  
-    - **Scikit-learn, XGBoost**  
-    - **Streamlit** for the interactive UI  
-    - **Pickle** for model saving  
-    - **UCI Telecom Churn Dataset (Iranian Churn)**  
+Call failures
+
+SMS usage
+
+Subscription length
+
+Customer age
+
+Payment amounts
+
+Charge behaviors
+
+👉 Output is automatically inserted into the churn model as an additional feature.
+
+2️⃣ Churn Prediction (Classification Model)
+
+✔ XGBoost-based model trained on processed telecom datasets
+✔ Produces:
+
+Churn Probability (%)
+
+Churn or Not Churn (Binary Output)
+✔ Helps identify risky customers early.
+
+🧠 Why This Project Matters
+
+🔹 Detect high-risk customers before they leave
+🔹 Improve telecom customer retention
+🔹 Understand spending + behavior patterns
+🔹 Deployable as a real-time analytics dashboard
+
+🛠 Technology Stack
+Component	Technology
+Backend ML	Python, Scikit-learn, XGBoost
+Data Processing	Pandas, NumPy
+Scaling	StandardScaler
+App Interface	Streamlit
+Model Storage	Pickle
+Dataset	UCI Telecom Iranian Churn Dataset
+📦 Installation
+git clone https://github.com/sfrcreativity/Telecom-Customer-Churn.git
+cd Telecom-Customer-Churn
+pip install -r requirements.txt
+streamlit run app.py
+
+📁 Repository Structure
+📦 Telecom-Customer-Churn
+ ┣ 📂 models
+ ┃ ┣ best_model.pkl
+ ┃ ┣ linear_regression_model.pkl
+ ┃ ┣ scaler.pkl
+ ┃ ┗ scaler_regression.pkl
+ ┣ 📂 images
+ ┣ app.py
+ ┣ requirements.txt
+ ┗ README.md
+
+📊 Features
+
+✨ Modern Streamlit UI
+✨ Two-step ML prediction pipeline
+✨ Clean data preprocessing
+✨ Scaling and model persistence
+✨ Error-handling for missing/invalid features
+✨ Developer-friendly modular code
+
+📘 Dataset Citation
+Citation: Iranian Churn [Dataset]. (2020).  
+UCI Machine Learning Repository.  
+https://doi.org/10.24432/C5JW3Z.
+
+🤝 Contribution
+
+Pull requests are welcome!
+You may:
+
+Improve UI
+
+Add dark mode
+
+Integrate database
+
+Add charts & analytics
+
+📬 Contact
+
+📌 GitHub: https://github.com/sfrcreativity/Telecom-Customer-Churn
