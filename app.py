@@ -19,6 +19,16 @@ with open("model_columns.pkl", "rb") as f:
     model_columns = pickle.load(f)
 
 st.title("Telecom Customer Churn Prediction 🚀")
+st.markdown("-")
+
+st.markdown(
+    """
+    **📌 Project Description**
+
+    A machine learning–powered app that predicts telecom customer churn based on customer behavior, usage statistics, subscription details, and complaints. It uses Linear Regression for customer value estimation and XGBoost for churn prediction.
+    """
+)
+st.markdown("-")
 st.write("Adjust the features and get real-time churn prediction.")
 
 subscription_options = {
