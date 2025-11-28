@@ -151,4 +151,7 @@ if st.button("Predict Customer Lost"):
 st.subheader("Customer Input Data")
 st.dataframe(input_df)
 
+st.markdown(
+    "[📂 View Project on GitHub](https://github.com/sfrcreativity/Telecom-Customer-Churn.git)"
+)
 st.markdown("**Citation:** Iranian Churn [Dataset]. (2020). UCI Machine Learning Repository. <https://doi.org/10.24432/C5JW3Z.>")
