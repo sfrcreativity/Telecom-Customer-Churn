@@ -18,17 +18,42 @@ with open("scaler.pkl", "rb") as f:
 with open("model_columns.pkl", "rb") as f:
     model_columns = pickle.load(f)
 
-st.title("Telecom Customer Churn Prediction 🚀")
-st.markdown("-")
+# Beautiful Header
+st.markdown("""
+    <style>
+        .main-header {
+            padding: 20px;
+            border-radius: 12px;
+            background: rgba(0, 122, 204, 0.15);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .main-header h1 {
+            color: #FFF;
+            font-weight: 700;
+            font-size: 36px;
+        }
+        .main-header p {
+            font-size: 16px;
+            color: #DDD;
+        }
+    </style>
+
+    <div class="main-header">
+        <h1>📡 Telecom Customer Churn Prediction</h1>
+        <p>AI-powered prediction system using Linear Regression + XGBoost</p>
+    </div>
+""", unsafe_allow_html=True)
+
 
 st.markdown(
     """
-    **📌 Project Description**
-
     A machine learning–powered app that predicts telecom customer churn based on customer behavior, usage statistics, subscription details, and complaints. It uses Linear Regression for customer value estimation and XGBoost for churn prediction.
     """
 )
-st.markdown("-")
+st.markdown("---")
 st.write("Adjust the features and get real-time churn prediction.")
 
 subscription_options = {
@@ -122,26 +147,30 @@ for col in model_columns_regression:
 
 # Reorder columns for regression
 input_reg_df = input_reg_df[model_columns_regression]
-# Predict Customer Value
-try:
-    X1_scaled = scaler1.transform(input_reg_df)
-    pred1 = model1.predict(X1_scaled)
-except Exception as e:
-    st.error(f"Error: {e}")    
 
-# Add missing columns
-for col in model_columns:
-    if col not in input_df.columns:
-        input_df[col] = 0
 
-# Reorder columns
-input_churn_df = input_df[model_columns]
-input_churn_df["Customer Value"] = pred1
 
 # -----------------------------
 # Predict
 # -----------------------------
-if st.button("Predict Customer Lost"):
+if st.button("Predict Customer Churn"):
+    # Predict Customer Value
+    try:
+        X1_scaled = scaler1.transform(input_reg_df)
+        pred1 = model1.predict(X1_scaled)
+    except Exception as e:
+        st.error(f"Error: {e}")    
+
+    # Add missing columns
+    for col in model_columns:
+        if col not in input_df.columns:
+            input_df[col] = 0
+
+    # Reorder columns
+    input_churn_df = input_df[model_columns]
+    input_churn_df["Customer Value"] = pred1
+
+
     try:
         X_scaled = scaler.transform(input_churn_df)
         pred = model.predict(X_scaled)
@@ -155,13 +184,13 @@ if st.button("Predict Customer Lost"):
     except Exception as e:
         st.error(f"Error: {e}")
 
-# -----------------------------
-# Show input data
-# -----------------------------
-st.subheader("Customer Input Data")
-st.dataframe(input_df)
-
-st.markdown(
-    "[📂 View Project on GitHub](https://github.com/sfrcreativity/Telecom-Customer-Churn.git)"
-)
-st.markdown("**Citation:** Iranian Churn [Dataset]. (2020). UCI Machine Learning Repository. <https://doi.org/10.24432/C5JW3Z.>")
+st.markdown("---")
+st.markdown("""
+    <div class="footer">
+        Made with ❤️ using Streamlit  
+        | <a href="https://github.com/sfrcreativity/Telecom-Customer-Churn" target="_blank">GitHub Project</a>  
+            <br>
+        Dataset: Iranian Churn [<a href="https://doi.org/10.24432/C5JW3Z" target="_blank">Dataset </a>]. (2020).
+            <br> UCI Machine Learning Repository.
+    </div>
+""", unsafe_allow_html=True)
